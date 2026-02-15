@@ -62,6 +62,12 @@ http://localhost:4200/
 
 ###note the file .env for backend
 
+###**Note: I finished it yesterday on 2/14. It could have been done faster, but I got busy making sure the versions were compatible and syncing them.
+---
+
+###**Note:I carefully transferred the design from Figma exactly as it is, including using the SVG icons and adding them directly into the HTML code. Every detail was handled with attention to keep the design intact.
+---
+
 
 ى
 
