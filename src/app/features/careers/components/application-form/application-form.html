@@ -1,0 +1,118 @@
+<div class="application-form-section" [attr.dir]="isRTL ? 'rtl' : 'ltr'">
+    <div class="form-header">
+        <h2 class="form-title">
+            {{ currentLanguage === 'ar' ? 'نموذج الاتصال' : 'Contact Form' }}
+        </h2>
+        <span class="form-required">
+            {{ currentLanguage === 'ar' ? '*جميع المعلومات مطلوبة' : '*All information is required' }}
+        </span>
+    </div>
+
+    <!-- Success Message -->
+    <div *ngIf="submitSuccess" class="success-message">
+        <p>{{ currentLanguage === 'ar' 
+            ? '✅ تم إرسال طلبك بنجاح! سنتواصل معك قريباً.' 
+            : '✅ Your application has been submitted successfully! We will contact you soon.' }}</p>
+    </div>
+
+    <!-- Error Message -->
+    <div *ngIf="submitError" class="error-message">
+        <p>❌ {{ submitError }}</p>
+    </div>
+
+    <form [formGroup]="applicationForm" (ngSubmit)="onSubmit()" class="application-form">
+        <div class="form-row">
+            <div class="form-group small">
+                <label class="form-label">
+                    {{ currentLanguage === 'ar' ? 'اختر الوظيفة' : 'Choose Position' }}
+                </label>
+                <select formControlName="job_position" class="form-select" [class.invalid]="isFieldInvalid('job_position')">
+                    <option value="معلم">{{ currentLanguage === 'ar' ? 'معلم' : 'Teacher' }}</option>
+                    <option value="مدرس">{{ currentLanguage === 'ar' ? 'مدرس' : 'Instructor' }}</option>
+                    <option value="مشرف">{{ currentLanguage === 'ar' ? 'مشرف' : 'Supervisor' }}</option>
+                </select>
+            </div>
+        </div>
+
+        <div class="form-row">
+            <div class="form-group">
+                <label class="form-label">
+                    {{ currentLanguage === 'ar' ? 'عدد سنوات الخبرة' : 'Years of Experience' }}
+                </label>
+                <select formControlName="years_experience" class="form-select" [class.invalid]="isFieldInvalid('years_experience')">
+                    <option value="1+">1+</option>
+                    <option value="3+">3+</option>
+                    <option value="5+">5+</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label class="form-label">
+                    {{ currentLanguage === 'ar' ? 'التخصص' : 'Major' }}
+                </label>
+                <select formControlName="major_id" class="form-select" [class.invalid]="isFieldInvalid('major_id')">
+                    <option value="">{{ loadingMajors 
+                        ? (currentLanguage === 'ar' ? 'جاري التحميل...' : 'Loading...') 
+                        : (currentLanguage === 'ar' ? 'اختر التخصص' : 'Choose Major') }}</option>
+                    <option *ngFor="let major of majors" [value]="major.id">{{ getMajorName(major) }}</option>
+                </select>
+            </div>
+        </div>
+
+        <div class="form-group full-width">
+            <label class="form-label">
+                {{ currentLanguage === 'ar' ? 'الاسم الكامل باللغة العربية' : 'Full Name in Arabic' }}
+            </label>
+            <input type="text" formControlName="full_name" class="form-input" 
+                   [placeholder]="currentLanguage === 'ar' ? 'الاسم' : 'Name'" 
+                   [class.invalid]="isFieldInvalid('full_name')">
+        </div>
+
+        <div class="form-group full-width">
+            <label class="form-label">
+                {{ currentLanguage === 'ar' ? 'رقم الموبايل' : 'Mobile Number' }}
+            </label>
+            <div class="phone-input-group">
+                <div class="country-code">
+                    <div class="country-flag">
+                        <img src="assets/images/pngtree-jordan-flag-map-flag-icon-photo-image_18876198.jpg" alt="Jordan Flag">
+                    </div>
+                    <span>▼</span>
+                </div>
+                <input type="tel" formControlName="phone" class="phone-number" [class.invalid]="isFieldInvalid('phone')">
+            </div>
+        </div>
+
+        <div class="form-group full-width">
+            <label class="form-label">
+                {{ currentLanguage === 'ar' ? 'البريد الالكتروني' : 'Email' }}
+            </label>
+            <input type="email" formControlName="email" class="form-input" 
+                   placeholder="example@domain.com" 
+                   [class.invalid]="isFieldInvalid('email')">
+        </div>
+
+        <div class="form-row">
+            <div class="form-group small">
+                <label class="form-label">
+                    {{ currentLanguage === 'ar' ? 'السيرة الذاتية' : 'CV' }}
+                </label>
+                <label class="file-input-wrapper" [class.invalid]="isFieldInvalid('cv')">
+                    <input type="file" class="file-input" (change)="onFileSelected($event)" accept=".pdf,.doc,.docx">
+                    <span class="file-label">{{ selectedFileName }}</span>
+                    <svg class="upload-icon" width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M1 19.8C1.26522 19.8 1.51957 19.9054 1.70711 20.0929C1.89464 20.2805 2 20.5348 2 20.8V25.8C2 26.3305 2.21071 26.8392 2.58579 27.2143C2.96086 27.5893 3.46957 27.8 4 27.8H28C28.5304 27.8 29.0391 27.5893 29.4142 27.2143C29.7893 26.8392 30 26.3305 30 25.8V20.8C30 20.5348 30.1054 20.2805 30.2929 20.0929C30.4804 19.9054 30.7348 19.8 31 19.8C31.2652 19.8 31.5196 19.9054 31.7071 20.0929C31.8946 20.2805 32 20.5348 32 20.8V25.8C32 26.8609 31.5786 27.8783 30.8284 28.6285C30.0783 29.3786 29.0609 29.8 28 29.8H4C2.93913 29.8 1.92172 29.3786 1.17157 28.6285C0.421427 27.8783 0 26.8609 0 25.8V20.8C0 20.5348 0.105357 20.2805 0.292893 20.0929C0.48043 19.9054 0.734784 19.8 1 19.8Z" fill="#778D9D"/>
+                        <path d="M15.292 2.29196C15.3849 2.19883 15.4953 2.12494 15.6168 2.07453C15.7383 2.02412 15.8685 1.99817 16 1.99817C16.1316 1.99817 16.2618 2.02412 16.3833 2.07453C16.5048 2.12494 16.6152 2.19883 16.708 2.29196L22.708 8.29196C22.8958 8.47973 23.0013 8.73441 23.0013 8.99996C23.0013 9.26551 22.8958 9.52018 22.708 9.70796C22.5203 9.89573 22.2656 10.0012 22 10.0012C21.7345 10.0012 21.4798 9.89573 21.292 9.70796L17 5.41396V23C17 23.2652 16.8947 23.5195 16.7072 23.7071C16.5196 23.8946 16.2653 24 16 24C15.7348 24 15.4805 23.8946 15.2929 23.7071C15.1054 23.5195 15 23.2652 15 23V5.41396L10.708 9.70796C10.6151 9.80093 10.5047 9.87469 10.3832 9.925C10.2617 9.97532 10.1315 10.0012 10 10.0012C9.86856 10.0012 9.73835 9.97532 9.61688 9.925C9.4954 9.87469 9.38502 9.80093 9.29204 9.70796C9.19907 9.61498 9.12531 9.5046 9.075 9.38312C9.02468 9.26164 8.99878 9.13144 8.99878 8.99996C8.99878 8.86847 9.02468 8.73827 9.075 8.61679C9.12531 8.49531 9.19907 8.38493 9.29204 8.29196L15.292 2.29196Z" fill="#778D9D"/>
+                    </svg>
+                </label>
+                <small *ngIf="isFieldInvalid('cv')" class="error-text">
+                    {{ currentLanguage === 'ar' ? 'يرجى اختيار ملف السيرة الذاتية' : 'Please select CV file' }}
+                </small>
+            </div>
+        </div>
+
+        <button type="submit" class="submit-button" [disabled]="loading">
+            <span *ngIf="!loading">{{ currentLanguage === 'ar' ? 'أرسل' : 'Submit' }}</span>
+            <span *ngIf="loading">{{ currentLanguage === 'ar' ? 'جاري الإرسال...' : 'Submitting...' }}</span>
+        </button>
+    </form>
+</div>

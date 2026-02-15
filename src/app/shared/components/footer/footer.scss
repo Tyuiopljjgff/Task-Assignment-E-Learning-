@@ -1,0 +1,262 @@
+.footer {
+    width: 100%;
+    height: 429px;
+    background: #043458;
+    border-radius: 48px 48px 0 0;
+    position: relative;
+    overflow: hidden;
+    
+    // تغيير اتجاه النص فقط - المواقع ثابتة
+    &[dir="rtl"] {
+        .footer-description {
+            text-align: right;
+            direction: rtl;
+        }
+        
+        .footer-link,
+        .footer-link-bottom {
+            text-align: right;
+            direction: rtl;
+        }
+        
+        .footer-copyright {
+            text-align: right;
+            direction: rtl;
+        }
+        
+        .social-title,
+        .footer-column-title {
+            text-align: right;
+            direction: rtl;
+        }
+        
+        // أيقونات الدفع على اليسار للعربي
+        .payment-icons {
+            left: 50px;
+            right: auto;
+        }
+    }
+    
+    &[dir="ltr"] {
+        .footer-description {
+            text-align: left;
+            direction: ltr;
+        }
+        
+        .footer-link,
+        .footer-link-bottom {
+            text-align: left;
+            direction: ltr;
+        }
+        
+        .footer-copyright {
+            text-align: left;
+            direction: ltr;
+        }
+        
+        .social-title,
+        .footer-column-title {
+            text-align: left;
+            direction: ltr;
+        }
+        
+        // أيقونات الدفع على اليمين للإنجليزي
+        .payment-icons {
+            right: 50px;
+            left: auto;
+        }
+    }
+}
+
+.footer-overlay {
+    position: absolute;
+    width: 647.29px;
+    height: 642.97px;
+    left: -215.16px;
+    top: -90.43px;
+    background: linear-gradient(104.38deg, rgba(4, 53, 89, 0.3) 22.9%, rgba(4, 52, 88, 0) 82.71%);
+    transform: rotate(6.99deg);
+}
+
+.footer-content {
+    position: relative;
+    z-index: 1;
+    padding: 54px 50px;
+    display: flex;
+    justify-content: space-between;
+    max-width: 1440px;
+    margin: 0 auto;
+}
+
+.footer-section {
+    display: flex;
+    flex-direction: column;
+    gap: 29px;
+    align-items: flex-end;
+}
+
+.footer-logo-section {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    align-items: flex-end;
+    width: 339px;
+}
+
+.footer-logo {
+    width: 255.93px;
+    height: 115px;
+    background: linear-gradient(90deg, #09528A 0%, #043458 100%);
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-weight: 800;
+    font-size: 32px;
+}
+
+.footer-description {
+    font-family: 'Tajawal';
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 27px;
+    text-align: right;
+    color: #FFFFFF;
+}
+
+.social-title {
+    font-family: 'Tajawal';
+    font-weight: 700;
+    font-size: 25px;
+    line-height: 30px;
+    color: #FD9A33;
+}
+
+.social-icons {
+    display: flex;
+    gap: 22px;
+}
+
+.social-icon {
+    width: 44.58px;
+    height: 44.58px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.1);
+    border: 0.5px solid rgba(229, 229, 234, 0.8);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #F2F2F7;
+    font-size: 20px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+    
+    &:hover {
+        background: rgba(255, 255, 255, 0.2);
+    }
+}
+
+.footer-links {
+    display: flex;
+    gap: 70px;
+}
+
+.footer-column {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    align-items: flex-end;
+}
+
+.footer-column-title {
+    font-family: 'Tajawal';
+    font-weight: 700;
+    font-size: 25px;
+    line-height: 30px;
+    color: #FD9A33;
+    padding: 10px;
+}
+
+.footer-link {
+    font-family: 'Tajawal';
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 27px;
+    color: #FFFFFF;
+    padding: 10px;
+    cursor: pointer;
+    text-decoration: none;
+    transition: color 0.3s ease;
+    
+    &:hover {
+        color: #FD9A33;
+    }
+}
+
+.footer-divider {
+    position: absolute;
+    width: 1342.58px;
+    height: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: 82px;
+    border: 1px solid rgba(255, 255, 255, 0.5);
+}
+
+.footer-bottom {
+    position: absolute;
+    bottom: 32px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 1338.4px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.footer-links-bottom {
+    display: flex;
+    gap: 20px;
+}
+
+.footer-link-bottom {
+    font-family: 'Tajawal';
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 22px;
+    color: #FFFFFF;
+    text-decoration: none;
+    border-bottom: 1px solid #E5E5EA;
+    transition: color 0.3s ease;
+    
+    &:hover {
+        color: #FD9A33;
+    }
+}
+
+.footer-copyright {
+    font-family: 'Tajawal';
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 22px;
+    color: #FFFFFF;
+}
+
+.payment-icons {
+    position: absolute;
+    bottom: 152px;
+    display: flex;
+    gap: 16px;
+    transition: left 0.3s ease, right 0.3s ease;
+}
+
+.payment-icon {
+    height: 32px;
+    opacity: 0.9;
+    transition: opacity 0.3s ease;
+    
+    &:hover {
+        opacity: 1;
+    }
+}

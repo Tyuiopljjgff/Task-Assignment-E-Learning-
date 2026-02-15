@@ -1,0 +1,87 @@
+<footer class="footer" [attr.dir]="isRTL ? 'rtl' : 'ltr'">
+    <div class="footer-overlay"></div>
+    
+    <div class="footer-content">
+        <div class="footer-logo-section">
+            <div class="footer-logo">TEST LOGO</div>
+            <p class="footer-description">
+                {{ currentLanguage === 'ar' 
+                   ? 'منصة تعليمية تفاعلية متطورة توفر أحدث الوسائل التكنولجية لتسهل التعلم وتحقيق تفوق ابنائكم ببراعة' 
+                   : 'An advanced interactive educational platform providing the latest technological tools to facilitate learning and achieve excellence for your children' }}
+            </p>
+        </div>
+
+        <div class="footer-links">
+            <div class="footer-column">
+                <div class="footer-column-title">
+                    {{ currentLanguage === 'ar' ? 'الروابط' : 'Links' }}
+                </div>
+                <a href="#" class="footer-link">
+                    {{ currentLanguage === 'ar' ? 'المواد' : 'Subjects' }}
+                </a>
+                <a href="#" class="footer-link">
+                    {{ currentLanguage === 'ar' ? 'المعلمون' : 'Teachers' }}
+                </a>
+                <a href="#" class="footer-link">
+                    {{ currentLanguage === 'ar' ? 'من نحن' : 'About Us' }}
+                </a>
+            </div>
+
+            <div class="footer-column">
+                <div class="footer-column-title">
+                    {{ currentLanguage === 'ar' ? 'الدعم' : 'Support' }}
+                </div>
+                <a href="#" class="footer-link">
+                    {{ currentLanguage === 'ar' ? 'تواصل معنا' : 'Contact Us' }}
+                </a>
+                <a href="#" class="footer-link">
+                    {{ currentLanguage === 'ar' ? 'كيفية استخدام المنصة' : 'How to Use Platform' }}
+                </a>
+                <a href="#" class="footer-link">
+                    {{ currentLanguage === 'ar' ? 'سياسة الالغاء و الاسترجاع' : 'Refund Policy' }}
+                </a>
+            </div>
+        </div>
+        
+        <div class="footer-section">
+            <div class="social-title">
+                {{ currentLanguage === 'ar' ? 'تابعنا علي التواصل الاجتماعي' : 'Follow Us on Social Media' }}
+            </div>
+            <div class="social-icons">
+                <div class="social-icon">f</div>
+                <div class="social-icon">𝕏</div>
+                <div class="social-icon">in</div>
+            </div>
+        </div>
+    </div>
+
+    <div class="payment-icons">
+        <svg class="payment-icon" viewBox="0 0 48 32" fill="none">
+            <rect width="48" height="32" rx="4" fill="#1A1F71"/>
+            <text x="24" y="20" text-anchor="middle" fill="white" font-size="12" font-weight="bold">VISA</text>
+        </svg>
+        <svg class="payment-icon" viewBox="0 0 48 32" fill="none">
+            <rect width="48" height="32" rx="4" fill="white"/>
+            <circle cx="18" cy="16" r="10" fill="#EB001B"/>
+            <circle cx="30" cy="16" r="10" fill="#F79E1B"/>
+        </svg>
+    </div>
+
+    <div class="footer-divider"></div>
+
+    <div class="footer-bottom">
+        <div class="footer-copyright">
+            {{ currentLanguage === 'ar' 
+               ? 'جميع الحقوق الطبع والنشر محفوظة 2024 © لدى مصنع العلماء' 
+               : '© 2024 Scientists Factory. All Rights Reserved' }}
+        </div>
+        <div class="footer-links-bottom">
+            <a href="#" class="footer-link-bottom">
+                {{ currentLanguage === 'ar' ? 'الأحكام وشروط الاستخدام' : 'Terms & Conditions' }}
+            </a>
+            <a href="#" class="footer-link-bottom">
+                {{ currentLanguage === 'ar' ? 'سياسة الخصوصية' : 'Privacy Policy' }}
+            </a>
+        </div>
+    </div>
+</footer>

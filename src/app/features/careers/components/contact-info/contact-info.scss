@@ -1,0 +1,133 @@
+.contact-info-section {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    width: 490px;
+    z-index: 1;
+    
+    // تغيير المواقع حسب اتجاه اللغة
+    &[dir="rtl"] {
+        align-items: flex-end;
+        
+        .contact-info-title,
+        .contact-info-text,
+        .map-link-text,
+        .map-link-label {
+            text-align: right;
+            direction: rtl;
+        }
+        
+        // المواقع للعربي
+        .contact-info-title {
+            transform: translateX(180px);
+        }
+        
+        .contact-info-item,
+        .map-link {
+            transform: translateX(70px);
+        }
+    }
+    
+    &[dir="ltr"] {
+        align-items: flex-start;
+        
+        .contact-info-title,
+        .contact-info-text,
+        .map-link-text,
+        .map-link-label {
+            text-align: left;
+            direction: ltr;
+        }
+        
+        // المواقع للإنجليزي - بدون translateX أو translateX(0)
+        .contact-info-title {
+            transform: translateX(0);
+        }
+        
+        .contact-info-item,
+        .map-link {
+            transform: translateX(0);
+        }
+    }
+}
+
+.contact-vector {
+    position: absolute;
+    top: 0;
+    right: -100px;
+    width: 100%;
+    height: auto;
+    z-index: 0;
+    pointer-events: none;
+}
+
+.contact-info-title {
+    font-family: 'Tajawal';
+    font-weight: 700;
+    font-size: 48px;
+    line-height: 58px;
+    color: #043458;
+    z-index: 1;
+    transition: transform 0.3s ease; // ✅ إضافة transition
+}
+
+.contact-info-list {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    width: 100%;
+    z-index: 1;
+}
+
+.contact-info-item {
+    display: flex;
+    gap: 12px;
+    align-items: center;
+    justify-content: flex-start;
+    transition: transform 0.3s ease; // ✅ إضافة transition
+}
+
+.contact-info-text {
+    font-family: 'Tajawal';
+    font-weight: 500;
+    font-size: 26px;
+    line-height: 22px;
+    color: #545F71;
+}
+
+.contact-icon {
+    width: 24px;
+    height: 24px;
+    color: #1396FD;
+    flex-shrink: 0;
+}
+
+.map-link {
+    display: flex;
+    gap: 12px;
+    align-items: center;
+    justify-content: flex-start;
+    cursor: pointer;
+    transition: opacity 0.3s ease, transform 0.3s ease; // ✅ إضافة transition
+    
+    &:hover {
+        opacity: 0.8;
+    }
+}
+
+.map-link-label {
+    font-family: 'Tajawal';
+    font-weight: 400;
+    font-size: 26px;
+    line-height: 31px;
+    color: #043458;
+}
+
+.map-link-text {
+    font-family: 'Tajawal';
+    font-weight: 500;
+    font-size: 26px;
+    line-height: 22px;
+    color: #545F71;
+}

@@ -1,0 +1,24 @@
+<section class="partners-section" [attr.dir]="isRTL ? 'rtl' : 'ltr'">
+    <div class="section-headline">
+        <h2 class="section-title">
+            {{ currentLanguage === 'ar' 
+               ? 'شركاؤنا في بناء الثقة والنجاح' 
+               : 'Our Partners in Building Trust and Success' }}
+        </h2>
+    </div>
+
+    <!-- Partners Scroll Container -->
+    <div class="partners-scroll-container">
+        <div class="partners-grid">
+            <div *ngFor="let partner of partners" class="partner-item">
+                <div class="partner-logo" 
+                     [style.background-image]="'url(' + getPartnerLogo(partner) + ')'"
+                     [style.background-size]="'cover'"
+                     [style.background-position]="'center'"
+                     [style.background-repeat]="'no-repeat'">
+                </div>
+                <div class="partner-name">{{ getPartnerName(partner) }}</div>
+            </div>
+        </div>
+    </div>
+</section>

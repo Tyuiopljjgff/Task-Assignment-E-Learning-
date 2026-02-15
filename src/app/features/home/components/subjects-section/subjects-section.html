@@ -1,0 +1,47 @@
+<section class="subjects-section" [attr.dir]="isRTL ? 'rtl' : 'ltr'">
+    <div class="section-headline">
+        <h2 class="section-title">
+            {{ currentLanguage === 'ar' ? 'المراحل الدراسية' : 'Academic Levels' }}
+        </h2>
+        <p class="section-subtitle">
+            {{ currentLanguage === 'ar' 
+                ? 'مدخلك المثالي لإستكشاف عوالم المعرفة والتحصيل الإكاديمي' 
+                : 'Your ideal gateway to explore the worlds of knowledge and academic achievement' }}
+        </p>
+    </div>
+
+    <!-- Loading State -->
+    <div *ngIf="loading" class="loading-container">
+        <div class="spinner"></div>
+        <p>{{ currentLanguage === 'ar' ? 'جاري التحميل...' : 'Loading...' }}</p>
+    </div>
+
+    <!-- Error State -->
+    <div *ngIf="error && !loading" class="error-container">
+        <p>{{ error }}</p>
+        <button (click)="loadAcademicLevels()" class="retry-btn">
+            {{ currentLanguage === 'ar' ? 'إعادة المحاولة' : 'Retry' }}
+        </button>
+    </div>
+
+    <!-- Subjects Scroll Container -->
+    <div *ngIf="!loading && !error && subjects.length > 0" class="subjects-scroll-container">
+        <div class="subjects-cards">
+            <div *ngFor="let subject of subjects" class="subject-card">
+                <div class="card-image" 
+                     [style.background-image]="'url(' + (subject.icon | storageUrl) + ')'"
+                     [style.background-size]="'cover'"
+                     [style.background-position]="'center'">
+                </div>
+                <div class="card-title">{{ getSubjectName(subject) }}</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Empty State -->
+    <div *ngIf="!loading && !error && subjects.length === 0" class="empty-container">
+        <p>{{ currentLanguage === 'ar' 
+            ? 'لا توجد مراحل دراسية متاحة حالياً' 
+            : 'No academic levels available at the moment' }}</p>
+    </div>
+</section>

@@ -1,0 +1,79 @@
+<section class="subjects-section" style="padding: 50px 0;" [attr.dir]="isRTL ? 'rtl' : 'ltr'">
+    <div class="testimonials-section">
+        <div class="section-headline">
+            <h2 class="section-title">
+                {{ currentLanguage === 'ar' ? 'شهادات ملهمة' : 'Inspiring Testimonials' }}
+            </h2>
+            <p class="section-subtitle">
+                {{ currentLanguage === 'ar' 
+                   ? 'تجارب حقيقية وقصص ملهمة, تعرف علي مسيرة طلابنا' 
+                   : 'Real experiences and inspiring stories, learn about our students\' journey' }}
+            </p>
+        </div>
+
+        <!-- Loading State -->
+        <div *ngIf="loading" class="loading-container">
+            <div class="spinner"></div>
+        </div>
+
+        <!-- Error State -->
+        <div *ngIf="error && !loading" class="error-container">
+            <p>{{ error }}</p>
+        </div>
+
+        <!-- Testimonials Slider -->
+        <div *ngIf="!loading && !error && testimonialSlides.length > 0" class="testimonials-slider-wrapper">
+            <div class="testimonials-slider">
+                <!-- كل Slide فيه 3 شهادات -->
+                <div *ngFor="let slide of testimonialSlides; let slideIndex = index" 
+                     class="slide" 
+                     [class.active]="slideIndex === activeDot">
+                    <div class="testimonials-cards">
+                        <div *ngFor="let testimonial of slide" class="testimonial-card">
+                            <div class="quote-icon" [ngClass]="testimonial.color">
+                                <svg viewBox="0 0 64 58" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M1.1792 17.0434C1.1792 25.1881 6.9299 31.4662 15.8941 31.1269C15.0485 42.4954 6.2533 52.3368 0.333496 56.9182L2.02489 59.4634C14.3719 51.6581 29.9326 35.5385 29.9326 18.9099C29.9326 9.40778 24.5202 2.45098 15.725 2.45098C6.92989 2.45098 1.1792 9.23818 1.1792 17.0434ZM35.5801 17.0434C35.5801 25.1881 41.3308 31.4662 50.2951 31.1269C49.4494 42.4954 40.6543 52.3368 34.7345 56.9182L36.4258 59.4634C48.7729 51.6581 64.3335 35.5385 64.3335 18.9099C64.3335 9.40778 58.9211 2.45098 50.126 2.45098C41.3308 2.45098 35.5801 9.23818 35.5801 17.0434Z"
+                                        fill="currentColor"/>
+                                </svg>
+                            </div>
+                            <p class="testimonial-text">
+                                {{ currentLanguage === 'ar' ? testimonial.text_ar : testimonial.text_en }}
+                            </p>
+                            <div class="testimonial-author">
+                                <div class="author-image" 
+                                     [style.background-image]="'url(' + (testimonial.image | storageUrl) + ')'"
+                                     [style.background-size]="'cover'"
+                                     [style.background-position]="'center'">
+                                </div>
+                                <div class="author-info">
+                                    <div class="author-name">
+                                        {{ currentLanguage === 'ar' ? testimonial.student_name_ar : testimonial.student_name_en }}
+                                    </div>
+                                    <div class="author-course">
+                                        {{ currentLanguage === 'ar' ? testimonial.course_ar : testimonial.course_en }}
+                                    </div>
+                                </div>
+                                
+                                
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Dots Navigation -->
+        <div class="slider-nav">
+            <div class="slider-dots">
+                <span *ngFor="let dot of dots; let i = index" 
+                      class="dot" 
+                      [class.active]="i === activeDot"
+                      (click)="goToSlide(i)"></span>
+            </div>
+        </div>
+
+        <button class="cta-button">
+            {{ currentLanguage === 'ar' ? 'إبدأ تجربتك المجانية الآن' : 'Start Your Free Trial Now' }}
+        </button>
+    </div>
+</section>

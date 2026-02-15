@@ -1,0 +1,273 @@
+.subjects-section {
+    width: 100%;
+    padding: 100px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 56px;
+    background: #F1F9FF;
+    
+    // دعم اتجاه النص - المواقع ثابتة
+    &[dir="rtl"] {
+        .section-title,
+        .section-subtitle,
+        .testimonial-text,
+        .author-name,
+        .author-course,
+        .cta-button {
+            text-align: right;
+            direction: rtl;
+        }
+    }
+    
+    &[dir="ltr"] {
+        .section-title,
+        .section-subtitle,
+        .testimonial-text,
+        .author-name,
+        .author-course,
+        .cta-button {
+            text-align: left;
+            direction: ltr;
+        }
+    }
+}
+
+.testimonials-section {
+    width: 1340px;
+    padding: 100px 64px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 56px;
+    background: rgba(4, 52, 88, 0.1);
+    border-radius: 24px;
+    margin: 0 auto;
+}
+
+.section-headline {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    text-align: center;
+}
+
+.section-title {
+    font-family: 'Tajawal';
+    font-weight: 700;
+    font-size: 48px;
+    line-height: 58px;
+    color: #043458;
+}
+
+.section-subtitle {
+    font-family: 'Tajawal';
+    font-weight: 700;
+    font-size: 24px;
+    line-height: 27px;
+    color: #545F71;
+}
+
+// Slider Wrapper
+.testimonials-slider-wrapper {
+    width: 100%;
+    overflow: hidden;
+    position: relative;
+}
+
+.testimonials-slider {
+    position: relative;
+    width: 100%;
+}
+
+.slide {
+    display: none;
+    width: 100%;
+    
+    &.active {
+        display: block;
+        animation: fadeIn 0.5s ease-in-out;
+    }
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateX(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+.testimonials-cards {
+    display: flex;
+    gap: 24px;
+    justify-content: center;
+    align-items: stretch;
+}
+
+.testimonial-card {
+    flex: 1;
+    max-width: 380px;
+    display: flex;
+    flex-direction: column;
+    padding: 32px;
+    gap: 24px;
+    background: #FFFFFF;
+    box-shadow: 0px 8px 16px rgba(84, 95, 113, 0.1);
+    border-radius: 16px;
+    align-items: flex-end; // المواقع ثابتة
+}
+
+.quote-icon {
+    width: 64px;
+    height: 58px;
+    font-size: 48px;
+    line-height: 58px;
+    transform: rotate(180deg);
+    align-self: flex-start; // المواقع ثابتة
+}
+
+.quote-icon.green { color: #66D86E; }
+.quote-icon.orange { color: #FD9A33; }
+.quote-icon.blue { color: #1396FD; }
+
+.testimonial-text {
+    font-family: 'Tajawal';
+    font-weight: 400;
+    font-size: 22px;
+    line-height: 26px;
+    text-align: right;
+    color: #000000;
+}
+
+.testimonial-author {
+    display: flex;
+    gap: 16px;
+    align-items: flex-end;
+    width: 100%;
+}
+
+.author-info {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    flex: 1;
+    align-items: flex-start; // المواقع ثابتة
+}
+
+.author-name {
+    font-family: 'Tajawal';
+    font-weight: 400;
+    font-size: 22px;
+    line-height: 26px;
+    text-align: right;
+    color: #545F71;
+}
+
+.author-course {
+    font-family: 'Tajawal';
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 24px;
+    text-align: right;
+    color: #545F71;
+}
+
+.author-image {
+    width: 80px;
+    height: 80px;
+    border-radius: 16px;
+    background: linear-gradient(135deg, #09528A 0%, #1396FD 50%, #66D86E 100%);
+}
+
+.slider-nav {
+    position: relative;
+    margin-top: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+}
+
+.slider-dots {
+    display: flex;
+    gap: 10px;
+    padding: 8px;
+}
+
+.dot {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background: #999999;
+    opacity: 0.5;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    
+    &:hover {
+        opacity: 0.8;
+    }
+}
+
+.dot.active {
+    width: 16px;
+    height: 16px;
+    background: linear-gradient(90deg, #09528A 0%, #043458 100%);
+    opacity: 1;
+}
+
+.cta-button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 32px;
+    width: 321px;
+    height: 79px;
+    background: linear-gradient(90deg, #09528A 0%, #043458 100%);
+    border-radius: 16px;
+    font-family: 'Tajawal';
+    font-weight: 700;
+    font-size: 24px;
+    line-height: 29px;
+    color: #F2F2F7;
+    cursor: pointer;
+    border: none;
+    transition: transform 0.2s ease;
+    
+    &:hover {
+        transform: scale(1.05);
+    }
+}
+
+// Loading container
+.loading-container,
+.error-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 40px;
+}
+
+.spinner {
+    width: 50px;
+    height: 50px;
+    border: 5px solid #f3f3f3;
+    border-top: 5px solid #043458;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+.error-container {
+    color: #d32f2f;
+    font-family: 'Tajawal';
+    font-size: 18px;
+}

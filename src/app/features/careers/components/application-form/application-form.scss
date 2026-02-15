@@ -1,0 +1,260 @@
+.application-form-section {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    width: 662px;
+    z-index: 1;
+    align-items: flex-end; // المواقع ثابتة
+    
+    // تغيير اتجاه النص فقط
+    &[dir="rtl"] {
+        .form-title,
+        .form-required,
+        .form-label,
+        .form-input,
+        .form-select,
+        .phone-number,
+        .file-label,
+        .submit-button {
+            text-align: right;
+            direction: rtl;
+        }
+    }
+    
+    &[dir="ltr"] {
+        .form-title,
+        .form-required,
+        .form-label,
+        .form-input,
+        .form-select,
+        .phone-number,
+        .file-label,
+        .submit-button {
+            text-align: left;
+            direction: ltr;
+        }
+    }
+}
+
+.form-header {
+    display: flex;
+    gap: 8px;
+    align-items: center;
+    width: 100%;
+    justify-content: flex-end; // المواقع ثابتة
+}
+
+.form-required {
+    font-family: 'Tajawal';
+    font-weight: 500;
+    font-size: 20px;
+    line-height: 27px;
+    color: #545F71;
+}
+
+.form-title {
+    font-family: 'Tajawal';
+    font-weight: 700;
+    font-size: 48px;
+    line-height: 58px;
+    color: #043458;
+}
+
+.application-form {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    width: 100%;
+    padding: 48px;
+    background: #FFFFFF;
+    border: 1px solid #DDE4EE;
+    box-shadow: 0px 0px 10px rgba(84, 95, 113, 0.06);
+    border-radius: 24px;
+}
+
+.form-row {
+    display: flex;
+    gap: 24px;
+    width: 100%;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    flex: 1;
+    align-items: flex-start; // المواقع ثابتة
+}
+
+.form-group.full-width {
+    width: 100%;
+}
+
+.form-group.small {
+    width: 271px;
+}
+
+.form-label {
+    font-family: 'Tajawal';
+    font-weight: 500;
+    font-size: 20px;
+    line-height: 24px;
+    text-align: right;
+    color: #043458;
+    width: 100%;
+    text-align: right;
+}
+
+.form-input, .form-select {
+    width: 100%;
+    padding: 12px 20px;
+    background: #FFFFFF;
+    border: 1px solid #BCC2CB;
+    border-radius: 16px;
+    font-family: 'Tajawal';
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 22px;
+    color: #043458;
+    text-align: right;
+}
+
+.form-input::placeholder, .form-select option:first-child {
+    color: #888D91;
+}
+
+.phone-input-group {
+    display: flex;
+    gap: 0;
+    border: 1px solid #BCC2CB;
+    border-radius: 16px;
+    overflow: hidden;
+    background: #FFFFFF;
+    width: 563px;
+}
+
+.country-code {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 12px 20px;
+    border-left: 1px solid #D3C6C6;
+    background: #FFFFFF;
+}
+
+.country-flag {
+    width: 30px;
+    height: 18px;
+    border-radius: 2px;
+    overflow: hidden;
+
+    img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        display: block;
+    }
+}
+
+.phone-number {
+    flex: 1;
+    padding: 12px 20px;
+    border: none;
+    font-family: 'Tajawal';
+    font-weight: 500;
+    font-size: 24px;
+    line-height: 29px;
+    color: #043458;
+    text-align: right;
+}
+
+.file-input-wrapper {
+    position: relative;
+    width: 100%;
+    padding: 12px 20px;
+    background: #FFFFFF;
+    border: 1px solid #BCC2CB;
+    border-radius: 16px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer;
+}
+
+.file-input {
+    display: none;
+}
+
+.file-label {
+    font-family: 'Tajawal';
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 22px;
+    color: #888D91;
+}
+
+.upload-icon {
+    width: 32px;
+    height: 32px;
+    color: #778D9D;
+}
+
+.submit-button {
+    width: 100px;
+    padding: 20px;
+    background: #043458;
+    border-radius: 16px;
+    font-family: 'Tajawal';
+    font-weight: 700;
+    font-size: 18px;
+    line-height: 22px;
+    color: #FFFFFF;
+    border: none;
+    cursor: pointer;
+    transition: background 0.3s ease;
+    
+    &:hover:not(:disabled) {
+        background: #09528A;
+    }
+}
+
+.success-message,
+.error-message {
+    padding: 16px 24px;
+    border-radius: 12px;
+    margin-bottom: 24px;
+    font-family: 'Tajawal';
+    font-size: 16px;
+    text-align: center;
+}
+
+.success-message {
+    background-color: #d4edda;
+    border: 1px solid #c3e6cb;
+    color: #155724;
+}
+
+.error-message {
+    background-color: #f8d7da;
+    border: 1px solid #f5c6cb;
+    color: #721c24;
+}
+
+.form-input.invalid,
+.form-select.invalid,
+.file-input-wrapper.invalid {
+    border-color: #d32f2f !important;
+}
+
+.error-text {
+    color: #d32f2f;
+    font-size: 14px;
+    margin-top: 4px;
+    display: block;
+    font-family: 'Tajawal';
+}
+
+.submit-button:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+}

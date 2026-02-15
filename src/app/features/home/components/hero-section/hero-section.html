@@ -1,0 +1,48 @@
+<section class="hero-section" [attr.dir]="isRTL ? 'rtl' : 'ltr'">
+  <!-- ✅ إضافة [ngClass] للـ container -->
+  <div class="hero-container" [ngClass]="colors[activeDot]">
+    <!-- Hero Image + Background Shapes -->
+    <div class="hero-image-container">
+      <div class="hero-bg-shapes" [ngClass]="colors[activeDot]">
+        <div class="shape-blue"></div>
+        <div class="shape-green-1"></div>
+        <div class="shape-green-2"></div>
+        <div class="shape-green-3"></div>
+      </div>
+      <div class="hero-person-image">
+        <img [src]="images[activeDot]" alt="Hero Image">
+      </div>
+    </div>
+
+    <!-- Hero Text Content -->
+    <div class="hero-content">
+      <div class="hero-text">
+        <h1 class="hero-title">
+          {{ currentLanguage === 'ar' 
+             ? 'تعلم, تقدم, سر نحو العلى' 
+             : 'Learn, Progress, Move Towards Excellence' }}
+        </h1>
+        <p class="hero-subtitle">
+          {{ currentLanguage === 'ar' 
+             ? 'مع أفضل المعلمين والمدرسين المختصين بالمواد والمناهج' 
+             : 'With the best teachers specialized in subjects and curricula' }}
+        </p>
+      </div>
+      <button class="cta-button">
+        {{ currentLanguage === 'ar' 
+           ? 'إبدأ تجربتك المجانية الآن' 
+           : 'Start Your Free Trial Now' }}
+      </button>
+    </div>
+
+    <!-- Slider Dots -->
+    <div class="slider-nav">
+      <div class="slider-dots">
+        <span *ngFor="let dot of images; let i = index" 
+              class="dot" 
+              [class.active]="i === activeDot"
+              (click)="goToSlide(i)"></span>
+      </div>
+    </div>
+  </div>
+</section>
