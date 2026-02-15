@@ -4,11 +4,10 @@
 ---
 
 ##**Admin login credentials
-
+---
  'email' = 'admin@elearning.com'
  
  'password' = password123'
----
 
 
 ###**Backend
