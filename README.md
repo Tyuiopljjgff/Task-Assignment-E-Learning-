@@ -28,7 +28,7 @@ C:\xampp\htdocs\backend\database
 C:\xampp\htdocs\backend\routes"
 
 
-npm install
+_npm install
 
 2.php artisan migrate:fresh
 
@@ -49,7 +49,7 @@ http://localhost:12345/admin/
 
 "Please replace the "src" folder generated after running the npm install -g @angular/cli command with my src folder from GitHub."
 
-npm install
+_ npm install
 
 2.ng serve 
 
