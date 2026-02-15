@@ -44,6 +44,7 @@ http://localhost:12345/admin/
 
 
 ##**Frontend
+
 1.npm install -g @angular/cli
 
 "Please replace the "src" folder generated after running the npm install -g @angular/cli command with my src folder from GitHub."
