@@ -4,19 +4,27 @@
 ---
 
 ##**Admin login credentials
- _'email' = 'admin@elearning.com'
- _'password' = password123'
+
+ 'email' = 'admin@elearning.com'
+ 
+ 'password' = password123'
 ---
 
 
 ###**Backend
 ---
-_composer create-project --prefer-dist laravel/laravel my-laravel-project
-_"Please replace the files in the following directories created by running the command composer create-project --prefer-dist laravel/laravel my-laravel-project with my files from GitHub:
--C:\xampp\htdocs\backend\app
--C:\xampp\htdocs\backend\resources
--C:\xampp\htdocs\backend\config
--C:\xampp\htdocs\backend\database
+composer create-project --prefer-dist laravel/laravel my-laravel-project
+
+"Please replace the files in the following directories created by running the command composer create-project --prefer-dist laravel/laravel my-laravel-project with my files from GitHub:
+
+C:\xampp\htdocs\backend\app
+
+C:\xampp\htdocs\backend\resources
+
+C:\xampp\htdocs\backend\config
+
+C:\xampp\htdocs\backend\database
+
 C:\xampp\htdocs\backend\routes"
 npm install
 php artisan migrate:fresh
