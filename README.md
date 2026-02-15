@@ -8,8 +8,9 @@
  -'password' = password123'
 ---
 
+
+###**Backend
 ---
-##**Backend
 -composer create-project --prefer-dist laravel/laravel my-laravel-project
 -"Please replace the files in the following directories created by running the command composer create-project --prefer-dist laravel/laravel my-laravel-project with my files from GitHub:
 -C:\xampp\htdocs\backend\app
