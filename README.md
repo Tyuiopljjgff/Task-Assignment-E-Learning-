@@ -26,10 +26,16 @@ C:\xampp\htdocs\backend\config
 C:\xampp\htdocs\backend\database
 
 C:\xampp\htdocs\backend\routes"
+
+
 npm install
+
 php artisan migrate:fresh
+
 php artisan db:seed
+
 php artisan storage:link
+
 php -S 127.0.0.1:12345 -t public
 
 ##Admindashboard run in:
@@ -39,8 +45,11 @@ http://localhost:12345/admin/
 
 ##**Frontend
 npm install -g @angular/cli
+
 "Please replace the "src" folder generated after running the npm install -g @angular/cli command with my src folder from GitHub."
+
 npm install
+
 ng serve 
 
 ##frontend run in:
