@@ -58,6 +58,6 @@ http://localhost:4200/
 ---
 
 
-###note the file .env for backend 
+###note the file .env for backend
 ى
 
