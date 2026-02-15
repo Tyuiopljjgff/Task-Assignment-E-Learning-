@@ -13,7 +13,7 @@
 
 ###**Backend
 ---
-composer create-project --prefer-dist laravel/laravel my-laravel-project
+1.composer create-project --prefer-dist laravel/laravel my-laravel-project
 
 "Please replace the files in the following directories created by running the command composer create-project --prefer-dist laravel/laravel my-laravel-project with my files from GitHub:
 
@@ -30,13 +30,13 @@ C:\xampp\htdocs\backend\routes"
 
 npm install
 
-php artisan migrate:fresh
+2.php artisan migrate:fresh
 
-php artisan db:seed
+3.php artisan db:seed
 
-php artisan storage:link
+4.php artisan storage:link
 
-php -S 127.0.0.1:12345 -t public
+5.php -S 127.0.0.1:12345 -t public
 
 ##Admindashboard run in:
 http://localhost:12345/admin/
@@ -44,13 +44,13 @@ http://localhost:12345/admin/
 
 
 ##**Frontend
-npm install -g @angular/cli
+1.npm install -g @angular/cli
 
 "Please replace the "src" folder generated after running the npm install -g @angular/cli command with my src folder from GitHub."
 
 npm install
 
-ng serve 
+2.ng serve 
 
 ##frontend run in:
 http://localhost:4200/
