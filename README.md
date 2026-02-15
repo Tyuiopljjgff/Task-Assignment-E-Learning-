@@ -3,6 +3,10 @@
 
 ---
 
+in vedio real run:
+---
+https://drive.google.com/file/d/1cmnWDmDfGMUMqkeY4DfGS6yVeTf4_ju1/view?usp=sharing
+
 ##**Admin login credentials
 ---
  'email' = 'admin@elearning.com'
@@ -57,5 +61,7 @@ npm install
 http://localhost:4200/
 
 ###note the file .env for backend
+
+
 ى
 
