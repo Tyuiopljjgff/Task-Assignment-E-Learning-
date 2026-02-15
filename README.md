@@ -44,7 +44,7 @@ npm install
 ##Admindashboard run in:
 http://localhost:12345/admin/
 
-
+The file .env:backend that I have uploaded to the GitHub repository is for the backend, not for the frontend.
 
 ##**Frontend
 ---
@@ -60,7 +60,6 @@ npm install
 ##frontend run in:
 http://localhost:4200/
 
-###note the file .env for backend
 
 ###**Note: I finished it yesterday on 2/14. It could have been done faster, but I got busy making sure the versions were compatible and syncing them.
 ---
