@@ -1,5 +1,5 @@
 
-##angular 21.1.4  ,node v25.2.1  ,php 8.4  ,xampp v3.3.0 note[ is running (Apache & MySQL)]  ,Laravel Framework 12.51.0  
+##angular 21.1.4  ,   node v25.2.1  ,     php 8.4  ,     xampp v3.3.0     ,     Laravel Framework 12.51.0  
 
 ---
 
@@ -40,10 +40,11 @@ npm install
 
 ##Admindashboard run in:
 http://localhost:12345/admin/
----
+
 
 
 ##**Frontend
+---
 
 1.npm install -g @angular/cli
 
@@ -55,7 +56,6 @@ npm install
 
 ##frontend run in:
 http://localhost:4200/
----
 
 
 ###note the file .env for backend
