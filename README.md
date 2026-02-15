@@ -4,10 +4,11 @@
 ---
 
 ##**Admin login credentials
- _'email' = 'admin@elearning.com'
+ -'email' = 'admin@elearning.com'
  -'password' = password123'
 ---
 
+---
 ##**Backend
 -composer create-project --prefer-dist laravel/laravel my-laravel-project
 -"Please replace the files in the following directories created by running the command composer create-project --prefer-dist laravel/laravel my-laravel-project with my files from GitHub:
@@ -32,9 +33,8 @@ npm install -g @angular/cli
 "Please replace the "src" folder generated after running the npm install -g @angular/cli command with my src folder from GitHub."
 npm install
 ng serve 
----
-
 
 ##frontend run in:
 http://localhost:4200/
+---
 
